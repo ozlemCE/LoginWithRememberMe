@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+@model LoginWithRememberMe.ViewModels.AccountViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <fieldset>Üye Girişi</fieldset>
+        @using(Html.BeginForm("Login","Account",FormMethod.Post))
+        {
+            <table cellpadding="2" cellspacing="2">
+                 <tr>
+                       <td>@Html.LabelFor(model=>model.account.Username)</td>
+                     <td>@Html.TextBoxFor(model => model.account.Username)</td>
+                   </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.account.Password)</td>
+                    <td>@Html.TextBoxFor(model => model.account.Password)</td>
+                </tr>
+                <tr> <td>&nbsp;</td>
+                      <td>@Html.CheckBoxFor(model=> model.remember)
+                           @Html.LabelFor(model => model.remember)</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Giriş" /></td>
+                </tr>
+                
+            </table>
+        }
+    </div>
+</body>
+</html>
